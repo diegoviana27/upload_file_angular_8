@@ -1,0 +1,28 @@
+<div class="app-container">
+  <form>
+    <mat-grid-list cols="2" rowHeight="200px">
+      <mat-grid-tile>
+        <div>Load files:</div>&nbsp;&nbsp;
+        <input type="file" class="file" multiple #fileUpload (change)="onFileSelected($event)">
+        <div class="file-upload">
+          <button mat-mini-fab color="primary" (click)="fileUpload.click()">
+            <mat-icon>attach_file</mat-icon>
+          </button>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div>Files loaded:</div>&nbsp;&nbsp;
+        <div *ngIf="files.length == 0"> No file yet.</div>
+        <ul>
+          <li *ngFor="let file of files; let index = index">{{ file.name }}</li>
+        </ul>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>
+  <div class="center">
+    <button mat-raised-button color="primary" (click)="sendFiles()">Send files</button>
+    <div class="loading" *ngIf="$loading | async">
+      <mat-spinner></mat-spinner>
+    </div> 
+  </div>
+</div>

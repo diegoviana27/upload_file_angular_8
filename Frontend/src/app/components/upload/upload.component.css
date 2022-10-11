@@ -1,0 +1,13 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.center {
+  margin: auto;
+  padding: 10px;
+}
+
+.file {
+  display: none;
+}
